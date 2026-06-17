@@ -48,4 +48,26 @@ export function gradeCalculator(prelim, midterm, finals, lab) {
     }
     else {
         return "invalid input";
-}};
+    }
+}
+
+export function login(email, password) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    const correctEmail = "juandelacruz@email.com";
+    const correctPass = "Str0ngp@ssword";
+
+    if (email === null || email === undefined || !emailPattern.test(email)) {
+        throw new Error("Invalid email");
+    }
+
+    if (password === null || password === undefined || !passPattern.test(password)) {
+        throw new Error("Weak Password");
+    }
+
+    if (email !== correctEmail || password !== correctPass) return "Incorrect email or password";
+
+    return "Login Successful";
+}
+
